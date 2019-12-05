@@ -50,6 +50,12 @@ public String toString();
 public boolean equals(JalaliCalendar o);
 ```
 
+## TODO
+
+- Compare two dates
+- Day difference between two dates
+- Add a(or some) day to a date
+
 ---------
 
 # Max Base
