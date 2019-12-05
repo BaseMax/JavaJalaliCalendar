@@ -4,7 +4,7 @@ Tiny library and class for Jalali Calendar in Java with Gregorian calendar conve
 
 # Java Jalali Calendar
 
-I did various searches. But I didn't find any simple libraries.
+I did various searches(about JalaliCalendar). But I didn't find any simple libraries.
 
 It can be said that this is one of the simplest libraries available.
 Because its codes are clear and clear.
@@ -19,6 +19,16 @@ Perhaps the algorithm used in this library might be better.
 - Check Leap year
 - Validation for jalali calendar
 
+## Sample Jalali Calendar
+
+```java
+JalaliCalendar date=new JalaliCalendar();
+date=date.toJalali(2019,12,12);
+System.out.println(date.getYear()); // 1398
+System.out.println(date.getMonth()); // 9
+System.out.println(date.getDay()); // 21
+System.out.println(date); // 1398/9/21
+```
 
 ## Structure
 
