@@ -42,6 +42,79 @@ public class JalaliCalendar {
         return gregorian2jalali(year, month, day);
     }
 
+    public static int daysOfMonth(int year, int month) {
+        if(month > 12 || month < 1) {
+            return -1;
+        }
+        // 1-6 : max is 31           / Total ==> 6*31=186
+        // 7-11: max is 30           / Total ==> 5*30=150
+        // 12: leap:30 else 29       / Total ==> 30 or 29
+        // A year is 365 or 366 day
+        if(month >=1 && month<=6) {
+            return 31;
+        }
+        else if(month >=7 && month <=11) {
+            return 30;
+        }
+        else if(month == 12) {
+            if(isLeapYear(year) == true) {
+                return 30;
+            }
+            return 29;
+        }
+        return -1;
+    }
+
+    public static int daysOfYear(int year) {
+        // A year is 365 or 366 day
+        if(isLeapYear(year)) {
+            return 366;
+        }
+        return 365;
+//        int sum=0;
+//        for(int i=1;i<=12;i++) {
+//            sum+=daysOfMonth(year, i);
+//        }
+//        return sum;
+    }
+
+    public static int daysOfYearUntilMonth(int year, int maxMonth) {
+        if(maxMonth >= 1 && maxMonth <=12) {
+            int sum=0;
+            for(int i=1;i<=maxMonth;i++) {
+                sum+=daysOfMonth(year, i);
+            }
+            return sum;
+        }
+        return -1;
+    }
+
+    public static int daysOfYearUntilDay(int year, int maxDay) {
+        if(maxDay >= 1 &&
+                (
+                        (isLeapYear(year) && maxDay <=366) || !isLeapYear(year) && maxDay <= 365
+                )
+        ) {
+            int sum = 0;
+            for (int i = 1; i <= 12; i++) {
+                int temp = daysOfMonth(year, i);
+                if(sum + temp <= maxDay) {
+                    sum += temp;
+                }
+                else {
+                    break;
+                }
+            }
+            return sum;
+        }
+        return -1;
+    }
+
+    public void addDays(int day) {
+        this.day+=day;
+        int maxDays=JalaliCalendar.daysOfMonth(this.year, this.month);
+    }
+
     public static JalaliCalendar gregorian2jalali(int year, int month, int day) {
         JalaliCalendar result=new JalaliCalendar();
         int array[]={0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};

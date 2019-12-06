@@ -42,5 +42,21 @@ public class main {
         System.out.println(""); //////////////////////////////
 
         System.out.println(date);
+
+        System.out.println(""); //////////////////////////////
+
+        System.out.println(JalaliCalendar.daysOfMonth(1398,1));//31
+        System.out.println(JalaliCalendar.daysOfMonth(1398,11));//30
+        System.out.println(JalaliCalendar.daysOfMonth(1398,12));//29
+        System.out.println(JalaliCalendar.daysOfYear(1398));//365
+        System.out.println(JalaliCalendar.daysOfYear(1397));//365
+        System.out.println(JalaliCalendar.daysOfYear(1396));//365
+        System.out.println(JalaliCalendar.daysOfYear(1395));//366
+        System.out.println(JalaliCalendar.daysOfYearUntilMonth(1395,4));//124
+        System.out.println(JalaliCalendar.daysOfYearUntilMonth(1395,11));//336
+        System.out.println(JalaliCalendar.daysOfYearUntilDay(1395,150));//124
+        System.out.println(JalaliCalendar.daysOfYearUntilDay(1395,124));//124
+        System.out.println(JalaliCalendar.daysOfYearUntilDay(1395,125));//124
+        System.out.println(JalaliCalendar.daysOfYearUntilDay(1395,123));//93
     }
 }
