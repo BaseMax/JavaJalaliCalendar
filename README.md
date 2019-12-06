@@ -35,7 +35,12 @@ System.out.println(date); // 1398/9/21
 ```java
 public JalaliCalendar();
 public boolean isLeapYear();
-public static boolean isLeapYear(int year){
+public static boolean isLeapYear(int year);
+public static int daysOfMonth(int year, int month);
+public static int daysOfYear(int year);
+public static int daysOfYearUntilMonth(int year, int maxMonth);
+public static int daysOfYearUntilDay(int year, int maxDay);
+public void addDays(int day);   
 public JalaliCalendar toJalali(int year, int month, int day){
 public static JalaliCalendar gregorian2jalali(int year, int month, int day);
 public void set(int year, int month, int day) throws Exception;
